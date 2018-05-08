@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    roomId: '',
+    roomName: '',
+    comments: [],
+    inputContent: '',
+    slideImages: [],
+    currentImage: '',
+    muted: false 
   },
 
   /**
@@ -33,8 +39,6 @@ Page({
       keepScreenOn: true
     })
     self.data.isShow = true;
-
-    
   },
 
   /**
@@ -48,7 +52,10 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
+    // 关闭 socketio
+
+    
   },
 
   /**
@@ -73,6 +80,14 @@ Page({
   },
 
   onNotify: function(e) {
+
+  },
+
+  toggleMute: function() {
+
+  },
+
+  bindInputContent: function(e) {
 
   }
 })

@@ -173,7 +173,8 @@ Page({
     if (nowTime - self.data.tapTime < 500) {
       return
     }
-    let url = '../room/room?roomID=' + e.currentTarget.dataset.roomid 
+    let url = '../room/room?roomID=' + e.currentTarget.dataset.roomid + '&roomName=' + e.currentTarget.dataset.roomname
+    
     wx.navigateTo({
       url: url,
     })
