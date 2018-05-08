@@ -1,0 +1,61 @@
+<!--pages/room/room.wxml-->
+
+
+<view class='container-box'>
+  <view class='board-view'>
+    <image src='../../assets/board-cover.png' mode='aspectFill'>
+    </image>
+  </view>
+
+  <view class='stage-view'>
+    <view class='stage-box'>
+      <image src='../../assets/push.png' mode='aspectFill'></image>
+    </view>
+    <view class='stage-box'>
+      <image src='../../assets/push.png' mode='aspectFill'></image>
+    </view>
+    <view class='stage-box'>
+      <image src='../../assets/push.png' mode='aspectFill'></image>
+    </view>
+  </view>
+
+  <view class='comment-view'>
+    <scroll-view scroll-y scroll-into-view="{{toview}}" class='comment'>
+      <view>
+        <view class='comment-detail' wx:for="{{comment}}">
+          <view wx:if="{{item.name}}" class='color-blue'>{{item.name}} {{item.time}}</view>
+          <view class="{{item.name? '' : 'color-org'}}">{{item.content}}</view>
+        </view>
+
+        <view class='comment-detail' >
+          <view  class='color-blue'>小刘同学: </view>
+          <view class="color-org">加入了房间</view>
+        </view>
+       <view class='comment-detail' >
+          <view  class='color-blue'>瘦瘦是个胖子: </view>
+          <view class="color-org">加入了房间</view>
+        </view>
+      </view>
+      
+      <view id='scroll-bottom' wx:if="{{toview}}"></view>
+    </scroll-view>
+  </view>
+
+  <view class='operate-view'> 
+    <view class='input-box'>
+          <input  maxlength="20" bindinput='bindRoomName' placeholder="写点什么..." placeholder-style="color:#fff;opacity: 0.55; margin-top:5px" />
+    </view>
+    <view class='operate-item'>
+      <view class='fa fa-microphone'></view>
+    </view>
+    <view class='operate-item'>
+      <view class='fa fa-file'></view>
+    </view>
+    <view class='operate-item'>
+      <view class='fa fa-phone'></view>
+    </view >
+    <view class='operate-item'>
+      <view class='fa fa-share-alt'></view>
+    </view>
+  </view>
+</view>

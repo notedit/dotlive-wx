@@ -1,0 +1,22 @@
+/**app.wxss**/
+
+@import "./weui.wxss";
+@import "./font-awesome.wxss";
+
+
+body, page {
+  height: 100%;
+}
+
+page {
+    font-size: 16px;
+    background-color: #F8F8F8;
+}
+
+body, page {
+  height: 100%;
+}
+ 
+page {
+  background-color: #F8F8F8;
+} 

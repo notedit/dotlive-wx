@@ -1,0 +1,19 @@
+
+<view class='container-box'>
+  <view class='input-box'>
+     <input value="{{roomName}}" maxlength="20" bindinput='bindRoomName' placeholder="输入直播名字" placeholder-style="color:#ffffff;opacity: 0.55;" />
+
+  </view>
+  <!-- <view class='image-box'>
+    <image src="../../assets/cover.jpg" mode="aspectFill">
+    </image>
+    <view class='box-action'>
+      <view class='fa fa-edit' bindtap='changeCover'></view>
+      <view bindtap='changeCover'>更换直播封面</view>
+    </view>
+  </view> -->
+</view>
+
+<view class='bottom-btn'>
+  <button type='primary' bindtap='create' hover-class='none'>创建房间</button>
+</view>

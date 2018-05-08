@@ -1,0 +1,27 @@
+<!--pages/cameraview/cameraview.wxml-->
+
+<!--pages/localview/localview.wxml-->
+<view class='pusher-container' style="width: {{styles.width}};height: {{styles.height}}">
+  <view class="pusher-box"> 
+    <live-pusher
+      id="local"
+      wx:if="{{user}}"
+      autopush
+      mode="RTC"
+      url="{{pushUrl}}"
+      aspect="{{config.aspect}}"
+      min-bitrate="{{config.minBitrate}}"
+      max-bitrate="{{config.maxBitrate}}"
+      audio-quality="high"
+      beauty="{{config.beauty}}"
+      muted="{{config.muted}}"
+      waiting-image=""
+      background-mute="{{true}}"
+      bindstatechange="onPush"
+      bindnetstatus="onStates"
+      binderror="onError">
+      <cover-image  class='mask' src=""></cover-image>
+      <!-- <cover-view class='character' style='padding: 0 5px;'>我（{{user}}）</cover-view> -->
+    </live-pusher>  
+  </view> 
+</view>

@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/room/room",
+    "pages/createroom/createroom"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "一点直播",
+    "navigationBarTextStyle": "white"
+  },
+  "debug": true
+}

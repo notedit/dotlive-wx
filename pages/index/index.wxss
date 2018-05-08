@@ -1,0 +1,67 @@
+/* pages/index/index.wxss */
+
+.main {
+  position: relative; 
+  width: 100vw;
+  height: 100vh;
+  background-repeat:no-repeat;
+  background-size: cover;
+  background:-webkit-gradient(linear, 0% 0%, 0% 80%,from(#061c36), to(#12161d));
+  overflow: auto;
+}
+
+.extext {
+  font-size: 13px;
+  color: #ffffff;
+  padding: 5vw 0 2vw;
+  text-align: center;
+}
+.no-room {
+  padding-top: 30vh;
+}
+
+
+.list-box {
+  margin: 2vw;
+  padding: 2vw;
+  background-color: #262626;
+  background-size: 100% 100%;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.list-box .cover {
+  width: 160rpx;
+  height: 120rpx;
+}
+
+.list-box .cover image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.list-box .content {
+  flex: 1;
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.list-info {
+  font-size: 14px;
+}
+
+.bottom-btn {
+  position: fixed;
+  width: 92vw;
+  left: 4vw;
+  bottom: 6vh;
+}
+.bottom-btn button {
+  background-color: #006eff;
+  border-radius: 50px;
+ }

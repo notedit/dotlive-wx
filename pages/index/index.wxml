@@ -1,0 +1,21 @@
+<!--pages/index/index.wxml-->
+<view class='main'>
+  
+  <view class='extext' wx-if="{{roomList.length}}">选择直播间进入</view>
+  <view class='extext no-room' wx-if="{{!roomList.length}}">
+    <view>当前还没有创建房间</view>
+  </view>
+
+  <view wx:for="{{roomList}}" class="list-box" bindtap="goRoom" data-roomid="{{item.id}}" data-roomname="{{item.subject}}" >
+    <view class='cover'>
+       <image src='../../assets/cover.jpg' mode="aspectFill"></image>
+    </view>
+    <view class='content'>
+        <view class='list-info'>{{item.subject}}</view>
+    </view>
+  </view> 
+</view>
+
+<view class='bottom-btn'> 
+  <button type="primary" bindtap="create" hover-class="none">新建直播间</button>
+</view> 
