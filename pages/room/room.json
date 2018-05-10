@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "",
   "usingComponents": {
+    "audiopusher":"/pages/audiopusher/audiopusher",
+    "audioplayer":"/pages/audioplayer/audioplayer"
   }
 }

@@ -1,0 +1,19 @@
+<!--pages/audiopusher/audiopusher.wxml-->
+
+
+<live-pusher
+  id="local"
+  wx:if="{{user}}"
+  autopush
+  mode="RTC"
+  url="{{pushUrl}}"
+  audio-quality="high"
+  muted="{{config.muted}}"
+  waiting-image=""
+  background-mute="{{true}}"
+  bindstatechange="onPush"
+  bindnetstatus="onState"
+  binderror="onError"
+  style="height:0px;width:0px"
+  >
+</live-pusher>  

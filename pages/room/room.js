@@ -15,9 +15,14 @@ Page({
     roomName: '',
     comments: [],
     inputContent: '',
-    slideImages: [],
+    pages: [],
+    room: null,
+    users: [],
+    pushers: [],
     currentImage: '',
-    muted: false 
+    muted: false,
+    pushUrl:'',
+    role: 'presenter'
   },
 
   /**
@@ -43,40 +48,53 @@ Page({
         console.log('onReconnect')
       },
       onError: function(err) {
-        
+        console.error('error', err)
       },
       onChat: function(data) {
-        
+        console.log('data', data)        
       },
       onRequestOnStage: function(data){
-
+        console.log('onRequestOnStage', data)
       },
       onAcceptRequestOnStage: function(data) {
-
+        console.log('onAcceptRequestOnStage',data)
       },
       onRemoveOnStage: function(data) {
-
+        console.log('onRemoveOnStage', data)
       },
       onLeaveOnStage: function(data) {
-
+        console.log('onLeaveOnStage',data)
       },
       onStage: function(data){
-
+        console.log('onStage', data)
       },
       onStageToggle: function(data){
-        
+        console.log('onStageToggle',data)        
       },
       onPrevPage: function(data){
+        console.log('onPrevPage',data)
 
       },
       onNextPage: function(data) {
+        console.log('onNextPage', data)
 
       },
       onJoined: function(data) {
+        console.log('joined',data)
 
+        self.setData({
+          users: data.users,
+          pushers: data.pushers,
+          pushUrl: data.pushUrl,
+          pages: data.pages
+        })
+
+        
       }
     })
   },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -109,10 +127,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
     // 关闭 socketio
-
-    
   },
 
   /**
@@ -147,4 +162,8 @@ Page({
   bindInputContent: function(e) {
 
   },
+
+  startPush: function() {
+    
+  }
 })

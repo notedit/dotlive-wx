@@ -9,6 +9,22 @@
 
   <view class='stage-view'>
     <view class='stage-box'>
+      <live-pusher 
+        id="local"
+        autopush
+        data-userid="local"
+        mode="RTC"
+        url="{{ pushUrl }}"
+        audio-quality="high"
+        enable-camera="{{ false }}"
+        muted="{{ false }}"
+        background-mute="{{true}}"
+        bindstatechange="onPush"
+        bindnetstatus="onState"
+        binderror="onError"
+        style="height:0px;width:0px"
+      >
+      </live-pusher>
       <image src='../../assets/push.png' mode='aspectFill'></image>
     </view>
     <view class='stage-box'>
