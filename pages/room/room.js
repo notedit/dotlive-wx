@@ -22,19 +22,22 @@ Page({
     currentImage: '',
     muted: false,
     pushUrl:'',
-    role: 'presenter'
+    role: '',
+    currentUser: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let userInfo = app.globalData.userInfo
+
+    this.data.currentUser = app.globalData.userInfo
     this.data.roomId = options.roomId
     this.data.roomName = options.roomName
+    this.data.role = options.role
 
     let self = this
-    app.socketClient = new SocketClient(userInfo.id,options.roomId,config.service.host, {
+    app.socketClient = new SocketClient(this.data.currentUser.id,options.roomId,config.service.host, {
       onConnect: function(){
         console.log('onConnect')
       },
@@ -89,7 +92,7 @@ Page({
           pages: data.pages
         })
 
-        
+        self.startPush()
       }
     })
   },
@@ -163,7 +166,46 @@ Page({
 
   },
 
+  onPusherNotify: function(e){
+    console.log('onPusherNotify', e)
+
+    let self = this
+
+    let code = e.detail.errCode
+
+    switch(code){
+      case 1000:{
+        // 推流成功 我们需要通知服务端
+        app.socketClient.emit('OnStage', {
+          userId: self.data.currentUser.id + '',
+          roomId: self.data.roomId
+        })
+        
+        break
+      }
+      case 1001:{
+        break
+      }
+      default: {
+        break
+      }
+    }
+  },
+
+  onPlayerNotify: function(e) {
+    console.log('onPlayerNotify', e)
+  },
+
   startPush: function() {
-    
+
+    let userInfo = app.globalData.userInfo
+    userInfo.pushUrl = this.data.pushUrl
+    userInfo.role = 'presenter'
+
+    this.setData({
+      pushers: [userInfo]
+    })
+
+    console.log('pushers', this.data.pushers)
   }
 })

@@ -9,7 +9,7 @@
   url="{{pushUrl}}"
   audio-quality="high"
   muted="{{config.muted}}"
-  waiting-image=""
+  enable-camera="{{ false }}"
   background-mute="{{true}}"
   bindstatechange="onPush"
   bindnetstatus="onState"

@@ -8,30 +8,24 @@
   </view>
 
   <view class='stage-view'>
-    <view class='stage-box'>
-      <live-pusher 
-        id="local"
-        autopush
-        data-userid="local"
-        mode="RTC"
-        url="{{ pushUrl }}"
-        audio-quality="high"
-        enable-camera="{{ false }}"
-        muted="{{ false }}"
-        background-mute="{{true}}"
-        bindstatechange="onPush"
-        bindnetstatus="onState"
-        binderror="onError"
-        style="height:0px;width:0px"
-      >
-      </live-pusher>
-      <image src='../../assets/push.png' mode='aspectFill'></image>
-    </view>
-    <view class='stage-box'>
-      <image src='../../assets/push.png' mode='aspectFill'></image>
-    </view>
-    <view class='stage-box'>
-      <image src='../../assets/push.png' mode='aspectFill'></image>
+
+    <view class='stage-box' wx:key="id" wx:for="{{ pushers }}"> 
+       <image src="{{item.avatar}}"   mode='aspectFill'></image>
+       <audiopusher
+          wx:if="{{ item.role === 'presenter' }}"
+          user="{{ item.id }}"
+          pushUrl="{{ item.pushUrl }}"
+          bindnotify="onPusherNotify"
+       >
+       </audiopusher>
+
+       <audioplayer
+          wx:if="{{ item.role === 'viewer' }}"
+          user="{{ item.id }}"
+          playUrl="{{ item.pushUrl }}"
+          bindnotify="{{ onPlayerNotify }}"
+       >
+       </audioplayer>
     </view>
   </view>
 

@@ -1,4 +1,4 @@
-const host = 'http://192.168.50.196:9002';
+const host = 'http://10.1.2.87:9002';
 
 
 //const host = 'https://dotlive.dot.cc'

@@ -72,7 +72,7 @@ Component({
             errCode: 1000,
             errMsg: '推流成功'
           }, {})
-          console.log('addPusher')
+          console.log('推流成功======================')
           break
         }
         case -1301: {
@@ -125,7 +125,7 @@ Component({
     },
 
     onState: function (e) {
-      console.log('onStates:', e.detail)
+      console.log('onState:', e.detail)
     }
   },
 
